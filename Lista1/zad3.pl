@@ -12,20 +12,15 @@ factor(N,L) :-
     L2 is L + 2, 
     factor(N,L2).
 
-prime(A,B,L) :- 
-    A1 is (A // 2) * 2 + 1, 
-    prime_list(A1,B,L).
+prime(LO,HI,[]) :- 
+    LO>HI, !.
+prime(LO,HI,[LO|L]) :-
+    prime_number(LO), !,
+    next(LO,LO1),
+    prime(LO1,HI,L).
 
+prime(LO,HI,L) :-
+    next(LO,LO1),
+    prime(LO1,HI,L).
 
-prime_list(A,B,[]) :- A > B, !.
-prime_list(A,B,[A|L]) :- 
-    prime_number(A), !, 
-    next(A,A1), 
-    prime_list(A1,B,L).
-
-prime_list(A,B,L) :- 
-    next(A,A1), 
-    prime_list(A1,B,L).
-
-next(2,3) :- !.
-next(A,A1) :- A1 is A + 2.
+next(A,A1) :- A1 is A + 1.

@@ -16,11 +16,15 @@ prime(LO,HI,[]) :-
     LO>HI, !.
 prime(LO,HI,[LO|L]) :-
     prime_number(LO), !,
-    next(LO,LO1),
+    next_number(LO,LO1),
     prime(LO1,HI,L).
 
 prime(LO,HI,L) :-
-    next(LO,LO1),
+    next_number(LO,LO1),
     prime(LO1,HI,L).
 
-next(A,A1) :- A1 is A + 1.
+next_number(1,2) :- !.
+next_number(A,A1) :-
+    mod(A,2) =:= 0, !,
+    A1 is A+1.
+next_number(A,A1) :- A1 is A + 2.

@@ -8,5 +8,5 @@ on(block7,block8).
 on(block8,block9).
 on(block9,block10).
 
-above(X,Y) :- on(X,Z), above(Z,Y). 
+above(X,Y) :- on(X,Z), above(Z,Y), !. 
 above(X,Y) :- on(X,Y).

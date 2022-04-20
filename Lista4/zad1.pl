@@ -13,7 +13,7 @@ resultMaker(List, X) :-
 
 
 operation(X,Y,Z) :-
-	X=(Z+Y).
+	X=Z+Y.
 
 operation(X,Y,Z) :-
 	X=Z-Y.

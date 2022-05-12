@@ -40,9 +40,9 @@ blackRow(N, C, [H | T]) :-
 	NewC is C + 1,
 	whiteRow(N, NewC, T).
 
-line(N, H, Kolor) :-
+line(N, H, Color) :-
 	write("|"),
-	line(N, 1, H, Kolor).
+	line(N, 1, H, Color).
 
 line(N, N, H, white) :-
 	(N = H -> write(" ### |") ; write("     |")),
